@@ -1,0 +1,32 @@
+<div class="container">
+  <br>
+  <br>
+
+  <form>
+      <h3>Accomplshments</h3>
+      <div class="form-group">
+          <label for="aType">Type of Accomplishment</label>
+          <select class="form-control" id="aType" #aTypeInput>
+              <option></option>
+              <option>Technical</option>
+              <option>Teamwork</option>
+              <option>Volunteering</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="aWhat">What did you accomplish?</label>
+          <textarea class="form-control" id="aWhat" #aWhatInput rows="3"></textarea>
+      </div>
+      <div class="form-group">
+          <label for="aHow">How did you do it?</label>
+          <textarea class="form-control" id="aHow" #aHowInput rows="3"></textarea>
+      </div>
+      <div class="form-group">
+          <label for="aElse">Anything else?</label>
+          <textarea class="form-control" id="aElse" #aElseInput rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="onAddAccomplishment()">Save</button>
+  </form>
+
+
+</div>
