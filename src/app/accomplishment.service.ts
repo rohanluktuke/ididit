@@ -42,7 +42,8 @@ export class AccomplishmentService {
 
     getAccomplishments() {
       const token = this.authService.getToken();
-      return this.http.get('https://ididit-d37e8.firebaseio.com/data.json?auth=' + token)
+      const uid = this.authService.getCurrentUserUUID();
+      return this.http.get('https://ididit-d37e8.firebaseio.com/data.json?auth=' + token + ';orderBy=\"userid\"&equalTo=\"' + uid + '\"')
       .map(
         (response: Response) => {
           const data = response.json();

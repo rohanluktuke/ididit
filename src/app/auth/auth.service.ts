@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
     token: string;
+    currentUserUUID: string;
 
     constructor(private router: Router) {}
 
@@ -24,7 +25,8 @@ export class AuthService {
                 firebase.auth().currentUser.getToken()
                 .then(
                     (token: string) => this.token = token
-                )
+                );
+                this.currentUserUUID = firebase.auth().currentUser.uid;
             }
         )
         .catch(
@@ -43,6 +45,10 @@ export class AuthService {
             (token: string) => this.token = token
         );
         return this.token;
+    }
+
+    getCurrentUserUUID() {
+        return this.currentUserUUID;
     }
 
     isAuthenticated() {
