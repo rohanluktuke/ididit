@@ -2,6 +2,7 @@ import { Accomplishment } from './model/Accomplishment';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
+import { AuthService } from './auth/auth.service';
 @Injectable()
 export class AccomplishmentService {
     accomplishments = [
@@ -25,20 +26,23 @@ export class AccomplishmentService {
         }
     ];
 
-    constructor(private http: Http) {
+    constructor(private http: Http,
+                private authService: AuthService) {
 
     }
 
 
     addAccomplishment(ac: Accomplishment) {
+      const token = this.authService.getToken();
       console.log('Type: ' + ac.type);
-      this.accomplishments.push(ac);
-      return this.http.post('https://ididit-d37e8.firebaseio.com/data.json', ac);
+      //this.accomplishments.push(ac);
+      return this.http.post('https://ididit-d37e8.firebaseio.com/data.json?auth=' + token, ac);
 
     }
 
     getAccomplishments() {
-      return this.http.get('https://ididit-d37e8.firebaseio.com/data.json')
+      const token = this.authService.getToken();
+      return this.http.get('https://ididit-d37e8.firebaseio.com/data.json?auth=' + token)
       .map(
         (response: Response) => {
           const data = response.json();
