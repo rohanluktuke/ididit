@@ -7,14 +7,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { EnterAccomplishmentsComponent } from './enter-accomplishments/enter-accomplishments.component';
 import { ViewAccomplishmentsComponent } from './view-accomplishments/view-accomplishments.component';
-import { SigninComponent } from './signin/signin.component';
+
 import { Routes, RouterModule } from '@angular/router';
 import { ViewOneAccomplishmentComponent } from './view-accomplishments/view-one-accomplishment/view-one-accomplishment.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/auth.service';
 
 const appRoutes: Routes = [
   { path: '', component: EnterAccomplishmentsComponent},
   { path: 'create', component: EnterAccomplishmentsComponent},
-  { path: 'view', component: ViewAccomplishmentsComponent}
+  { path: 'view', component: ViewAccomplishmentsComponent},
+  { path: 'signup', component: SignupComponent},
+  { path: 'signin', component: SigninComponent}
 ];
 
 @NgModule({
@@ -23,8 +28,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     EnterAccomplishmentsComponent,
     ViewAccomplishmentsComponent,
+    ViewOneAccomplishmentComponent,
     SigninComponent,
-    ViewOneAccomplishmentComponent
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

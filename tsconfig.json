@@ -15,5 +15,11 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "files": [
+    "src/app/model/accomplishment.ts"
+  ],
+  "include": [
+    "src/**/*"
+  ],
 }

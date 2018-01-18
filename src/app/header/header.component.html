@@ -5,8 +5,20 @@
     </div>
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li><a routerLink="/create">Create</a></li>
-        <li><a [routerLink]="['/view']">View</a></li>
+        <ng-template [ngIf]="authService.isAuthenticated()">
+            <li><a routerLink="/create">Create</a></li>
+            <li><a [routerLink]="['/view']">View</a></li>
+        </ng-template>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+            <li><a routerLink="/signup">Register</a></li>
+            <li><a routerLink="/signin">Login</a></li>
+        </ng-template>
+        <li><a style="cursor: pointer;"
+          (click)="onLogout()"
+          *ngIf="authService.isAuthenticated()">Logout</a></li>
       </ul>
     </div>
   </div>
