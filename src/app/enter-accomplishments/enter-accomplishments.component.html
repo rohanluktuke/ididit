@@ -1,7 +1,11 @@
 <div class="container">
   <br>
   <br>
+    <ng-template [ngIf]="!authService.isAuthenticated()">
+        <p>Welcome to iDidIt. Please signup or login</p>
+    </ng-template>
 
+  <ng-template [ngIf]="authService.isAuthenticated()">
   <form>
       <h3>Accomplshments</h3>
       <div class="form-group">
@@ -27,6 +31,6 @@
       </div>
       <button type="submit" class="btn btn-primary" (click)="onAddAccomplishment()">Save</button>
   </form>
-
+</ng-template>
 
 </div>
