@@ -17,7 +17,7 @@ export class EnterAccomplishmentsComponent implements OnInit {
   @ViewChild('aExtraCurricularInput') aExtraCurricularInputRef: ElementRef;
   @ViewChild('aNextGoalsInput') aNextGoalsInputRef: ElementRef;
   constructor(private accomplishmentService: AccomplishmentService,
-              private authService: AuthService) { }
+              public authService: AuthService) { }
 
   ngOnInit() {
   }
