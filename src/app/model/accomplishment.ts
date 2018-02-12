@@ -10,4 +10,8 @@ export class Accomplishment {
         public id: string,
         public createdts: Date,
         public modifiedts: Date) {}
+
+    public setId(id: number) {
+        this.id=id;
+    }
 }

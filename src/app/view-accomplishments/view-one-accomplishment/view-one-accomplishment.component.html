@@ -9,17 +9,31 @@
 -->
 
 <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">{{accomplishment.what}} <span class="badge badge-primary">{{accomplishment.type}}</span></h5>
-      <h6 class="card-subtitle mb-2 text-muted">How was it done</h6>
-      <p class="card-text">{{accomplishment.how}}</p>
-      <h6 class="card-subtitle mb-2 text-muted">Result</h6>
-      <p class="card-text">{{accomplishment.result}}</p>
-      <h6 class="card-subtitle mb-2 text-muted">Extracurricular</h6>
-      <p class="card-text">{{accomplishment.extracurricular}}</p>
-      <h6 class="card-subtitle mb-2 text-muted">Next Goals</h6>
-      <p class="card-text">{{accomplishment.nextgoals}}</p>
-      <a href="#" class="card-link">Edit ...</a>
-      <a href="#" class="card-link">Another link</a>
+    <div class="card-header" id="headingOne">
+        <h5 class="card-title">
+            <button 
+                class="btn btn-link" 
+                data-toggle="collapse" 
+                [attr.data-target]="'#collapse' + accomplishment.id" 
+                aria-expanded="true" 
+                aria-controls="collapseOne">
+                {{accomplishment.what}} <span class="badge badge-primary">{{accomplishment.type}}</span>        
+            </button>
+        </h5>
+    </div>
+    
+    <div id="{{'collapse' + accomplishment.id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">How was it done</h6>
+        <p class="card-text">{{accomplishment.how}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Result</h6>
+        <p class="card-text">{{accomplishment.result}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Extracurricular</h6>
+        <p class="card-text">{{accomplishment.extracurricular}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Next Goals</h6>
+        <p class="card-text">{{accomplishment.nextgoals}}</p>
+        <a href="#" class="card-link">Edit ...</a>
+        <a href="#" class="card-link">Another link</a>
+        </div>
     </div>
   </div>
