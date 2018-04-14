@@ -11,7 +11,7 @@ export class Accomplishment {
         public createdts: Date,
         public modifiedts: Date) {}
 
-    public setId(id: number) {
-        this.id=id;
-    }
+    // public setId(id: number) {
+    //     this.id=id;
+    // }
 }

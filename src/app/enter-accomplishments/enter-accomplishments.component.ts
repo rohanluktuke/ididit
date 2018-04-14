@@ -32,6 +32,7 @@ export class EnterAccomplishmentsComponent implements OnInit {
     const nextgoalsinput = this.aNextGoalsInputRef.nativeElement.value;
     console.log(typeinput);
     const uid = this.authService.getCurrentUserUUID();
+    const accomplishmentId = uid + new Date().toLocaleString();
     const accomplishment = new Accomplishment(
       typeinput,
       whatinput,
@@ -40,7 +41,7 @@ export class EnterAccomplishmentsComponent implements OnInit {
       extracurricularinput,
       nextgoalsinput,
       uid,
-      '123',
+      accomplishmentId,
       new Date(),
       new Date() );
     this.accomplishmentService.addAccomplishment(accomplishment)

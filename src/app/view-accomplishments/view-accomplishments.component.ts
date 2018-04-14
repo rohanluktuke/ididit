@@ -26,8 +26,8 @@ export class ViewAccomplishmentsComponent implements OnInit {
         //const Accomplishment toPush;
         entries.forEach(e => {
           console.log(e[1]);
-          this.toPush = e[1];
-          this.toPush.id = counter++;
+          this.toPush = e[1] as Accomplishment;
+          //this.toPush.id=counter++;
           console.log(this.toPush);
           this.accomplishments.push(this.toPush);
         });
